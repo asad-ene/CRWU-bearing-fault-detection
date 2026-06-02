@@ -9,10 +9,17 @@ Case Western Reserve University (CWRU) Bearing Dataset
 - 2300 samples, perfectly balanced
 - Features: RMS, Kurtosis, Crest Factor, Skewness etc.
 
+##Hyperparaters setting:
+- n_estimators=200,
+- criterion='entropy',
+- min_samples_split=5,
+- max_depth=20,
+- random_state=42
+
 ## Results
 | Model         | Accuracy |
 |---------------|----------|
-| Random Forest | 97%      |
+| Random Forest | 96%      |
 | CNN (coming)  | TBD      |
 
 ## Key Finding
