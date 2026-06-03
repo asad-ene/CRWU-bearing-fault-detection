@@ -9,6 +9,14 @@ Case Western Reserve University (CWRU) Bearing Dataset
 - 2300 samples, perfectly balanced
 - Features: RMS, Kurtosis, Crest Factor, Skewness etc.
 
+## Dataset Structure (NPZ)
+The NPZ file contains the following arrays:
+
+| Array Key | Shape | Data Type | Description |
+|-----------|-------|-----------|-------------|
+| `data` | (4600, 32, 32, 32) | float32 | Spectrogram images of bearing vibrations |
+| `labels` | (4600,) | string | Fault type labels (Ball_007, IR_007, Normal, etc.) |
+
 ## Hyperparaters setting Random Forest:
 - n_estimators=200,
 - criterion='entropy',
@@ -25,10 +33,7 @@ Case Western Reserve University (CWRU) Bearing Dataset
 |-------|----------|---------------|-----------------|
 | Random Forest | **97%** | 2-3 seconds | <0.1 seconds |
 | SVM (RBF) | 95% | 3-4 minutes | 0.5 seconds |
-
+| CNN (2D) | 91% | 1-2 minutes | 0.2 seconds |
 
 ## Key Finding
-Model achieve high accuracy with normal vs faulty bearings. Confusion occur only in small damaging fauls (0.007 inch) across different fault type. Random forest outperform SVM by 2 percent, SVM has slow performance because of one v one strategy. Both model achieve achieve 95 plus accuracy
-
-## Next Step
-Model training raw vibration signals to capture characteristic defect frequencies and improve small fault discrimination.
+Model achieve high accuracy with normal vs faulty bearings. Confusion occur only in small damaging fauls (0.007 inch) across different fault type. Random forest outperform SVM by 2 percent, SVM has slow performance because of one v one strategy. Both model achieve achieve 95 plus accuracy. Latly, CNN was trained on NPZ data.
